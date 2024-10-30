@@ -15,18 +15,25 @@ export default function Home() {
       })
   }, []);
 
-  let gameList = games.map((game) => <li key={game.id} onClick={() => handleClick(game.name)}>{game.name}</li>)
+  let gameList = games.map((game) => 
+    <li key={game.id} onClick={() => handleClick(game.releaseDate, game.price)}>{game.name}</li>);
 
-  const handleClick = (game) => {
-    alert(`${game} was clicked`)
+  const handleClick = (date, cost) => {
+    isClicked = true
+    releaseDate = date
+    price = cost
   }
+
+  let isClicked = false
+  let price = '0'
+  let releaseDate = 'NA'
 
   return (
     <div>
       <h1>List of Cool Games:</h1>
       <aside>Click a title for more info!</aside>
       <ul>
-        {gameList}
+        {isClicked ? gameList + ` - Release Date: ${releaseDate} - Price: ${price}`: gameList}
       </ul>
     </div>
   );

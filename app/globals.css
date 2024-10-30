@@ -30,6 +30,9 @@ aside{
 }
 li{
   list-style: circle inside;
-  padding: 5px;
+  margin-top: 10px;
+}
+p{
+  text-indent: 40px;
 }
 
